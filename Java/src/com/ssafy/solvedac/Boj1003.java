@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Boj2615 {
+public class Boj1003 {
 	static StringBuilder sb = new StringBuilder();
 	static ArrayList<Integer> zero=new ArrayList<>(Arrays.asList(1,0,1));//0,1,2
 	static ArrayList<Integer> one=new ArrayList<>(Arrays.asList(0,1,1));//0,1,2
