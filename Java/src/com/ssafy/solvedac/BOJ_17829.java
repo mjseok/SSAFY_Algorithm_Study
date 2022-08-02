@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_17829 {
+	
+	//두번째로 큰 값
 	public static int second(int[] num) {
 		Arrays.sort(num);
 		return num[2];
