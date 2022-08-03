@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Boj1735 {
+	public static int euclidean(int a,int b) {
+		return b!=0 ? euclidean(b,a%b):a;
+	}
 	public static void main(String[] args) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String str = "";
@@ -19,15 +22,11 @@ public class Boj1735 {
 		int numeratorB = Integer.parseInt(str.split(" ")[0]);
 		// 분모B
 		int denominatorB =Integer.parseInt(str.split(" ")[1]);
-		
 		int dapJa= numeratorA*denominatorB+denominatorA*numeratorB;
 		int dapMo=denominatorA*denominatorB;
-		for(int i=dapJa;i>=1;i--) {
-			if(dapJa%i==0 && dapMo%i==0) {
-				dapJa/=i;
-				dapMo/=i;
-			}
-		}
+		int gongyak = euclidean(dapJa,dapMo);
+		dapJa/=gongyak;
+		dapMo/=gongyak;
 		sb.append(dapJa).append(" ").append(dapMo);
 		System.out.println(sb);
 	}
