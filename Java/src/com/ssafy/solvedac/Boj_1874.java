@@ -23,7 +23,7 @@ public class Boj_1874 {
 				}
 			}
 
-			if (stack.peek() == input) { // 스택에 들어있는 마지막 값이 들어올 값보다 크거나 같으면 pop
+			if (stack.peek() == input) { // 스택에 들어있는 마지막 값이 들어올 값과 같으면 pop
 				stack.pop();
 				sb.append("-").append("\n");
 
