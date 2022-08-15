@@ -25,32 +25,35 @@ public class BOJ_2178 {
 		for (int i = 0; i < N; i++) {
 			str = in.readLine();
 			for (int j = 0; j < M; j++) {
-				miro[i][j] = str.charAt(j) - '0';
+				miro[i][j] = str.charAt(j)-'0';
 			}
 		}
-		bfs(0, 0);
-		System.out.println(miro[N - 1][M - 1]);
+		System.out.println(bfs(0, 0));
 	}
 
-	private static void bfs(int x, int y) {
+	private static int bfs(int x, int y) {
 		Queue<int[]> queue = new LinkedList<>();
-		queue.add(new int[] { x, y });
+		queue.add(new int[] { x, y, 1 });
 		while (!queue.isEmpty()) {
 			int[] cur = queue.poll();
 			int curX = cur[0];
 			int curY = cur[1];
+			int cnt = cur[2];
+			if(curX==N-1 && curY==M-1) {
+				return cnt;
+			}
 			for (int d = 0; d < 4; d++) {
 				int nx = curX + dx[d];
 				int ny = curY + dy[d];
 				if (nx < 0 || nx >= N || ny < 0 || ny >= M)
 					continue;
 				if (miro[nx][ny] == 1) {
-					queue.add(new int[] { nx, ny });
-
-					miro[nx][ny] = miro[curX][curY] + 1;
+					queue.add(new int[] { nx, ny, cnt + 1 });
+					miro[nx][ny] = 0;
 				}
 			}
 
 		}
+		return -1;
 	}
 }
