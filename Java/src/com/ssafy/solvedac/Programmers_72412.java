@@ -1,8 +1,6 @@
 package com.ssafy.solvedac;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 
 public class Programmers_72412 {
 	public static int[] solution(String[] info, String[] query) {
@@ -33,7 +31,7 @@ public class Programmers_72412 {
 			}
 
 		}
-		System.out.println(Arrays.toString(answer));
+		
 		return answer;
 	}
 
