@@ -6,6 +6,9 @@ public class Programmers_92342 {
 	        
 	        return answer;
 	    }
+	 private static void combi(int start,int[] res) {
+		 
+	 }
 	 public static void main(String[] args) {
 		 int[] info = new int[] {2,1,1,1,0,0,0,0,0,0,0};
 		 int[] info1 = new int[] {1,0,0,0,0,0,0,0,0,0,0};
