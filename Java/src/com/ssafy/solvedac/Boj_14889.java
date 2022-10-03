@@ -8,7 +8,6 @@ import java.util.StringTokenizer;
 
 public class Boj_14889 {
 	static int[] start;
-	static int[] link;
 	static int half;
 	static int N;
 	static boolean[] visited;
@@ -44,11 +43,10 @@ public class Boj_14889 {
 			return;
 		}
 		for(int i=s;i<N;i++) {
-			visited[i]=true; //선택, 안선택한게 뭔지 알고 싶을 때를 위해서는 남겨둘 수 있음
+			visited[i]=true; 
 			start[cnt] = people[i];
 			ncr(i+1,cnt+1);
-			start[cnt]=0;//선택, 안선택한게 뭔지 알고 싶을 때를 위해서는 남겨둘 수 있음
-			visited[i] = false; //선택, 안선택한게 뭔지 알고 싶을 때를 위해서는 남겨둘 수 있음
+			visited[i] = false;
 		}
 	}
 	private static void cal(int[] start) {
@@ -61,6 +59,7 @@ public class Boj_14889 {
 					startPower+=map[i][j];
 					startPower+=map[j][i];
 				}else if(visited[i]==false && visited[j]==false) {
+					//link팀
 					linkPower+=map[i][j];
 					linkPower+=map[j][i];
 				}
