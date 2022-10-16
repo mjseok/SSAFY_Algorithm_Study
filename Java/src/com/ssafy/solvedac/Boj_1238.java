@@ -1,15 +1,17 @@
 package com.ssafy.solvedac;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Boj_1238 {
-	static int INF = 1_000_000_000;
+	static int INF = 1000000;
 	public static void main(String[] args) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		//BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
+		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = null;
 		st = new StringTokenizer(in.readLine(), " ");
 		int N = Integer.parseInt(st.nextToken());
@@ -45,6 +47,9 @@ public class Boj_1238 {
 		for (int i = 1; i <= N; i++) {
 			answer = answer < (town[i][X] + town[X][i]) ? (town[i][X] + town[X][i]) : answer;
 		}
-		System.out.println(answer);
+		out.write(answer+"");
+        out.flush();
+        out.close();
+        in.close();
 	}
 }
