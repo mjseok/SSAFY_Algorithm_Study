@@ -5,10 +5,10 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Boj_1238 {
-	static int INF = 1000000;
 	public static void main(String[] args) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -20,11 +20,11 @@ public class Boj_1238 {
 		int[][] town = new int[N + 1][N + 1];
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N; j++) {
-				if (i != j)
-					town[i][j] = INF;
+				if(i!=j)
+					town[i][j] = 1000000;
 			}
 		}
-		
+
 		for (int i = 0; i < M; i++) {
 			st = new StringTokenizer(in.readLine(), " ");
 			int start = Integer.parseInt(st.nextToken());
@@ -36,20 +36,20 @@ public class Boj_1238 {
 		for (int k = 1; k <= N; k++) {
 			for (int i = 1; i <= N; i++) {
 				for (int j = 1; j <= N; j++) {
-					int tmp = town[i][k] + town[k][j];
-					town[i][j] = town[i][j] > tmp ? tmp : town[i][j];
 					
+					town[i][j] = Math.min(town[i][j],town[i][k]+town[k][j]);
+
 				}
 			}
 		}
 
 		int answer = Integer.MIN_VALUE;
 		for (int i = 1; i <= N; i++) {
-			answer = answer < (town[i][X] + town[X][i]) ? (town[i][X] + town[X][i]) : answer;
+			answer = Math.max(town[i][X]+town[X][i], answer);
 		}
-		out.write(answer+"");
-        out.flush();
-        out.close();
-        in.close();
+		out.write(answer + "");
+		out.flush();
+		out.close();
+		in.close();
 	}
 }
